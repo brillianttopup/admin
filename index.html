@@ -107,11 +107,12 @@
             border-radius: 8px;
         }
 
-        /* Timer Styling */
-        .timer {
+        /* Notice Styling */
+        .notice {
             font-size: 18px;
-            color: #ff0000;
-            margin-bottom: 10px;
+            color: #28a745; /* Green color */
+            margin-bottom: 20px;
+            text-align: center;
         }
     </style>
 </head>
@@ -143,72 +144,37 @@
     <div class="content" id="content">
         <h1 id="section-title">Dashboard</h1>
         <div id="dashboard" class="section">
-            <div class="timer" id="timer"></div>
-            <p>Time has been set as per Brilliant Contact</p>
+            <div class="notice">The website is currently open for transactions, but the edit option will be available at 8 PM.</div>
             <p>Welcome to the Dashboard!</p>
         </div>
         <div id="users" class="section" style="display:none;">
-            <div class="timer" id="timer-users"></div>
             <p>User Management Section</p>
         </div>
         <div id="products" class="section" style="display:none;">
-            <div class="timer" id="timer-products"></div>
             <p>Product Management Section</p>
         </div>
         <div id="reports" class="section" style="display:none;">
-            <div class="timer" id="timer-reports"></div>
             <p>Reports Section</p>
         </div>
         <div id="settings" class="section" style="display:none;">
-            <div class="timer" id="timer-settings"></div>
             <p>Settings Section</p>
         </div>
     </div>
 
     <script>
-        // Timer Countdown Function
-        function startTimer() {
-            const endDate = new Date();
-            endDate.setDate(endDate.getDate() + 1); // Set to tomorrow
-            endDate.setHours(17, 0, 0, 0); // Set end time to 5:00 PM
-
-            function updateTimer() {
-                const now = new Date();
-                const timeLeft = endDate - now;
-
-                if (timeLeft > 0) {
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-                    document.querySelectorAll('.timer').forEach(timer => {
-                        timer.innerText = `Time left: ${hours}h ${minutes}m ${seconds}s`;
-                    });
-                } else {
-                    document.querySelectorAll('.timer').forEach(timer => {
-                        timer.innerText = "Time is up!";
-                    });
-                    clearInterval(timerInterval);
-                }
-            }
-
-            const timerInterval = setInterval(updateTimer, 1000);
-            updateTimer();
-        }
-
         // Login Function
         function login() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
-
-            // Check credentials
-            if (username === '1313' && password === '50221313' || username === '1219' && password === '50221219' || username === '1100' && password === '1100') {
+            
+            if (
+                (username === "1100" && password === "50221100") ||
+                (username === "1313" && password === "50221313") ||
+                (username === "1219" && password === "50221219")
+            ) {
                 document.getElementById('login-page').style.display = 'none';
                 document.getElementById('sidebar').style.display = 'block';
                 document.getElementById('content').style.display = 'block';
-                
-                // Start the timer after login
-                startTimer();
             } else {
                 alert('Incorrect Username or Password!');
             }

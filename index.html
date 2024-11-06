@@ -97,8 +97,8 @@
             margin-left: 220px;
             padding: 20px;
             display: none;
-            background-color: #e0f7fa; /* Water color */
-            height: 100vh; /* Full height */
+            background-color: #e0f7fa;
+            height: 100vh;
         }
 
         .section {
@@ -110,7 +110,7 @@
         /* Notice Styling */
         .notice {
             font-size: 18px;
-            color: #28a745; /* Green color */
+            color: #28a745;
             margin-bottom: 20px;
             text-align: center;
         }
@@ -138,6 +138,7 @@
             <li><a href="#" onclick="showSection('reports')">Reports</a></li>
             <li><a href="#" onclick="showSection('settings')">Settings</a></li>
         </ul>
+        <button onclick="turnOnWebsite()" style="width: 100%; padding: 10px; background: #28a745; color: #fff; border: none; border-radius: 4px; cursor: pointer; margin-top: 20px;">Turn On Website</button>
     </div>
 
     <!-- Main Content -->
@@ -191,6 +192,11 @@
 
             // Update section title
             document.getElementById('section-title').innerText = section.charAt(0).toUpperCase() + section.slice(1);
+        }
+
+        // Turn On Website Function
+        function turnOnWebsite() {
+            window.location.href = "https://brillianttopup.github.io/agent.verify/";
         }
     </script>
 </body>
